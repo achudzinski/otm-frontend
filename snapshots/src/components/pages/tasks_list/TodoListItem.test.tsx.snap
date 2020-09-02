@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoListItem /> renders correctly when not selected 1`] = `
+<div
+  className="todo-list-item"
+>
+  <a
+    className="btn btn-secondary"
+    href="/tasks/1"
+    onClick={[Function]}
+  >
+    List A
+  </a>
+</div>
+`;
+
+exports[`<TodoListItem /> renders correctly when selected 1`] = `
+<div
+  className="todo-list-item"
+>
+  <a
+    className="btn btn-success"
+    href="/tasks/1"
+    onClick={[Function]}
+  >
+    List A
+  </a>
+</div>
+`;
