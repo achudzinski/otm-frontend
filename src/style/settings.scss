@@ -1,0 +1,13 @@
+
+$assetsBase: "/";
+
+$medium-breakpoint: 600px;
+$large-breakpoint: 1000px;
+
+@mixin forMedium {
+    @media screen and (min-width: $medium-breakpoint) { @content; }
+}
+
+@mixin forLarge {
+    @media screen and (min-width: $large-breakpoint) { @content; }
+}
