@@ -8,6 +8,7 @@ import {tasksApiClient} from "../../../../services/api/TasksApiClient";
 import {addTask, addTaskCompleted} from "../../../../state/tasks";
 import {TaskType} from "../../../../models/TaskType";
 import {v4 as uuidv4} from "uuid";
+import {broadcastTaskAdded} from "../../../../services/notifications";
 
 export interface AddTaskFormContainerProps {
     selectedListId: number
@@ -41,7 +42,10 @@ export const AddTaskFormContainer = ({selectedListId}:AddTaskFormContainerProps)
         dispatch(addTask(task));
 
         tasksApiClient.addTask(task, selectedListId)
-            .then(addedTask => dispatch(addTaskCompleted(localId, addedTask)))
+            .then(addedTask => {
+                dispatch(addTaskCompleted(localId, addedTask));
+                broadcastTaskAdded(addedTask, selectedListId);
+            })
             .catch(() => { /* todo inform about error */ })
     };
 

@@ -80,10 +80,6 @@ export class TasksApiClient {
             .sendPost('/tasks/update-completed', {}, { id: taskId, completed})
             .then(rawResponse => rawResponse.json())
             .then(response => {
-                if (response.error) {
-                    throw new ApiError(response.error);
-                }
-
                 return true;
             })
             .catch(e => {

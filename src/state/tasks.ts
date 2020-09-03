@@ -4,6 +4,7 @@ export const LOAD_TASKS = 'LOAD_TASKS';
 export const ADD_TASK = 'ADD_TASK';
 export const ADD_TASK_COMPLETED = 'ADD_TASK_COMPLETED';
 export const TOGGLE_COMPLETED_STATE = 'TOGGLE_COMPLETED_STATE';
+export const SET_COMPLETED_STATE = 'SET_COMPLETED_STATE';
 
 export interface LoadTasksAction {
     type: typeof LOAD_TASKS,
@@ -28,7 +29,14 @@ export interface ToggleCompletedStateAction {
     payload: number,
 }
 
-export type TasksActions = LoadTasksAction | AddTaskAction | AddTaskCompletedAction | ToggleCompletedStateAction;
+export interface SetCompletedStateAction {
+    type: typeof SET_COMPLETED_STATE,
+    payload: {taskId: number, completed: boolean},
+}
+
+
+
+export type TasksActions = LoadTasksAction | AddTaskAction | AddTaskCompletedAction | ToggleCompletedStateAction | SetCompletedStateAction;
 
 export const loadTasks = (tasks: TaskType[]): LoadTasksAction => {
     return {
@@ -58,13 +66,26 @@ export const toggleCompletedState = (taskId: number): ToggleCompletedStateAction
     }
 };
 
+export const setCompletedState = (taskId: number, completed: boolean): SetCompletedStateAction => {
+    return {
+        type: SET_COMPLETED_STATE,
+        payload: {taskId, completed},
+    }
+};
+
+
+
 export const tasksReducer = (state: TaskType[] = [], action: TasksActions) => {
     if (action.type === LOAD_TASKS) {
         return action.payload;
     }
 
     if (action.type === ADD_TASK) {
-        return state.concat(action.payload);
+        if (state.find(task => task.id !== null && task.id === action.payload.id) === undefined) {
+            return state.concat(action.payload);
+        }
+
+        return state;
     }
 
     if (action.type === ADD_TASK_COMPLETED) {
@@ -73,6 +94,10 @@ export const tasksReducer = (state: TaskType[] = [], action: TasksActions) => {
 
     if (action.type === TOGGLE_COMPLETED_STATE) {
         return state.map(task => task.id === action.payload ? {...task, completed: !task.completed} : task)
+    }
+
+    if (action.type === SET_COMPLETED_STATE) {
+        return state.map(task => task.id === action.payload.taskId ? {...task, completed: action.payload.completed} : task)
     }
 
     return state;
