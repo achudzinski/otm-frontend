@@ -2,6 +2,7 @@ import {HttpApiClient} from "../api/HttpApiClient";
 import {ApiError} from "../api/ApiError";
 import {config} from "../../config";
 import {TodoListType} from "../../models/TodoListType";
+import {TaskType} from "../../models/TaskType";
 
 export class TasksApiClient {
     private apiClient: HttpApiClient;
@@ -20,6 +21,48 @@ export class TasksApiClient {
                 }
 
                 return response.lists;
+            })
+            .catch(e => {
+                if (e instanceof ApiError) {
+                    throw e;
+                } else {
+                    throw new ApiError('unknown', e)
+                }
+            })
+            ;
+    }
+
+    getTasksByListId(listId: number): Promise<TaskType[]> {
+        return this.apiClient
+            .sendGet('/tasks/list', {list: listId})
+            .then(rawResponse => rawResponse.json())
+            .then(response => {
+                if (response.error) {
+                    throw new ApiError(response.error);
+                }
+
+                return response.tasks;
+            })
+            .catch(e => {
+                if (e instanceof ApiError) {
+                    throw e;
+                } else {
+                    throw new ApiError('unknown', e)
+                }
+            })
+            ;
+    }
+
+    updateCompletedState(taskId: number, completed: boolean): Promise<boolean> {
+        return this.apiClient
+            .sendPost('/tasks/update-completed', {}, { id: taskId, completed})
+            .then(rawResponse => rawResponse.json())
+            .then(response => {
+                if (response.error) {
+                    throw new ApiError(response.error);
+                }
+
+                return true;
             })
             .catch(e => {
                 if (e instanceof ApiError) {

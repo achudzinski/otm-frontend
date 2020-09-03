@@ -1,9 +1,9 @@
 import * as React from "react";
-import {TodoListType} from "../../../models/TodoListType";
-import {getUrlToTasksList} from "../../../services/urlManager";
 import {Link} from "react-router-dom";
 import "./TodoListItem.scss";
-import {classNames} from "../../../services/classNames";
+import {TodoListType} from "../../../../models/TodoListType";
+import {getUrlToTasksList} from "../../../../services/urlManager";
+import {classNames} from "../../../../services/classNames";
 
 export interface TodoListItemProps {
     todoList: TodoListType,

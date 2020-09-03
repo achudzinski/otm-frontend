@@ -1,7 +1,6 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {TodoListItem} from "./TodoListItem";
-import {App} from "../../app/App";
 import {MemoryRouter} from "react-router";
 
 describe("<TodoListItem />", () => {

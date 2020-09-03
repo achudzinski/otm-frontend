@@ -1,7 +1,7 @@
 import * as React from "react";
 import {TodoListItem} from "./TodoListItem";
-import {TodoListType} from "../../../models/TodoListType";
 import "./TodoList.scss";
+import {TodoListType} from "../../../../models/TodoListType";
 
 export interface TodoListProps {
     todoLists: TodoListType[],
