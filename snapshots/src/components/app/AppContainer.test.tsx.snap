@@ -4,12 +4,19 @@ exports[`<AppContainer /> renders correctly 1`] = `
 <div
   className="app"
 >
-  <div>
+  <div
+    className="tasks-list-page"
+  >
     <div
       className="spinner"
     >
       Loading
       
+    </div>
+    <div
+      className="alert alert-info"
+    >
+      Choose todo list
     </div>
   </div>
 </div>

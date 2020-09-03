@@ -1,35 +1,22 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 import {MemoryRouter} from "react-router";
-import {TodoList} from "../pages/tasks_list/TodoList";
+import {App} from "./App";
+import {Provider} from "react-redux";
+import {configureStore} from "@reduxjs/toolkit";
+import {rootReducer} from "../../state/rootReducer";
 
-const list = [
-    {id: 1, name: "List A"},
-    {id: 2, name: "List B"},
-    {id: 3, name: "List C"},
-]
 describe("<App />", () => {
     it('renders correctly empty list', () => {
+        const store = configureStore({
+            reducer: rootReducer
+        });
+
         const tree = renderer
-            .create(<MemoryRouter><TodoList todoLists={[]} selectedListId={null} /></MemoryRouter>)
+            .create(<Provider store={store}><MemoryRouter><App /></MemoryRouter></Provider>)
             .toJSON();
 
         expect(tree).toMatchSnapshot();
     });
 
-    it('renders correctly list without selected item', () => {
-        const tree = renderer
-            .create(<MemoryRouter><TodoList todoLists={list} selectedListId={null} /></MemoryRouter>)
-            .toJSON();
-
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('renders correctly list with selected item', () => {
-        const tree = renderer
-            .create(<MemoryRouter><TodoList todoLists={list} selectedListId={2} /></MemoryRouter>)
-            .toJSON();
-
-        expect(tree).toMatchSnapshot();
-    });
 });

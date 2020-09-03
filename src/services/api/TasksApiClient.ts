@@ -53,6 +53,28 @@ export class TasksApiClient {
             ;
     }
 
+
+    addTask(task: TaskType, listId: number): Promise<TaskType> {
+        return this.apiClient
+            .sendPost('/tasks/create', {}, { title: task.title, list: listId })
+            .then(rawResponse => rawResponse.json())
+            .then(response => {
+                if (response.error) {
+                    throw new ApiError(response.error);
+                }
+
+                return response.task;
+            })
+            .catch(e => {
+                if (e instanceof ApiError) {
+                    throw e;
+                } else {
+                    throw new ApiError('unknown', e)
+                }
+            })
+            ;
+    }
+
     updateCompletedState(taskId: number, completed: boolean): Promise<boolean> {
         return this.apiClient
             .sendPost('/tasks/update-completed', {}, { id: taskId, completed})

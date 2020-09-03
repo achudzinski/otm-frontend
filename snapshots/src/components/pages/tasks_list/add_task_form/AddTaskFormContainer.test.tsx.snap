@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddTaskFormContainer /> can change value 1`] = `ReactWrapper {}`;
+
+exports[`<AddTaskFormContainer /> can change value 2`] = `ReactWrapper {}`;
+
+exports[`<AddTaskFormContainer /> renders correctly 1`] = `
+<div
+  className="add-task-form"
+>
+  <div
+    className="text-field"
+  >
+    <input
+      className="text-field--input"
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <button
+    className="button"
+    onClick={[Function]}
+  >
+    Add
+  </button>
+</div>
+`;

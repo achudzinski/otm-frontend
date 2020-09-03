@@ -1,102 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> renders correctly 1`] = `
+exports[`<App /> renders correctly empty list 1`] = `
 <div
   className="app"
 >
-  <div>
+  <div
+    className="tasks-list-page"
+  >
     <div
       className="spinner"
     >
       Loading
       
     </div>
-  </div>
-</div>
-`;
-
-exports[`<App /> renders correctly empty list 1`] = `
-<div
-  className="todo-list"
-/>
-`;
-
-exports[`<App /> renders correctly list with selected item 1`] = `
-<div
-  className="todo-list"
->
-  <div
-    className="todo-list-item"
-  >
-    <a
-      className="btn btn-secondary"
-      href="/tasks/1"
-      onClick={[Function]}
+    <div
+      className="alert alert-info"
     >
-      List A
-    </a>
-  </div>
-  <div
-    className="todo-list-item"
-  >
-    <a
-      className="btn btn-success"
-      href="/tasks/2"
-      onClick={[Function]}
-    >
-      List B
-    </a>
-  </div>
-  <div
-    className="todo-list-item"
-  >
-    <a
-      className="btn btn-secondary"
-      href="/tasks/3"
-      onClick={[Function]}
-    >
-      List C
-    </a>
-  </div>
-</div>
-`;
-
-exports[`<App /> renders correctly list without selected item 1`] = `
-<div
-  className="todo-list"
->
-  <div
-    className="todo-list-item"
-  >
-    <a
-      className="btn btn-secondary"
-      href="/tasks/1"
-      onClick={[Function]}
-    >
-      List A
-    </a>
-  </div>
-  <div
-    className="todo-list-item"
-  >
-    <a
-      className="btn btn-secondary"
-      href="/tasks/2"
-      onClick={[Function]}
-    >
-      List B
-    </a>
-  </div>
-  <div
-    className="todo-list-item"
-  >
-    <a
-      className="btn btn-secondary"
-      href="/tasks/3"
-      onClick={[Function]}
-    >
-      List C
-    </a>
+      Choose todo list
+    </div>
   </div>
 </div>
 `;

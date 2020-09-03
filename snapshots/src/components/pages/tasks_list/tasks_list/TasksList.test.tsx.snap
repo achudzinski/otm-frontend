@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TasksList /> renders correctly 1`] = `
+<div
+  className="tasks-list"
+>
+  <div
+    className="tasks-list-item card"
+  >
+    <div
+      className="card-body"
+    >
+      Task 1
+      <button
+        onClick={[Function]}
+      >
+        done
+      </button>
+    </div>
+  </div>
+  <div
+    className="tasks-list-item card bg-success"
+  >
+    <div
+      className="card-body"
+    >
+      Task 2
+      <button
+        onClick={[Function]}
+      >
+        cancel
+      </button>
+    </div>
+  </div>
+</div>
+`;

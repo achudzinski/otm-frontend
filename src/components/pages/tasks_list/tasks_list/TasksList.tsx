@@ -5,7 +5,7 @@ import "./TasksList.scss";
 
 export interface TasksListProps {
     tasks: TaskType[],
-    onTaskCompletedClick: (taskId:number) => void,
+    onTaskCompletedClick: (taskId:number|null) => void,
 }
 
 export const TasksList = ({tasks, onTaskCompletedClick}:TasksListProps) => {

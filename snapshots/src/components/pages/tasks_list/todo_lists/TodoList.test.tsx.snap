@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoList /> renders correctly empty list 1`] = `
+<div
+  className="todo-list"
+/>
+`;
+
+exports[`<TodoList /> renders correctly list with selected item 1`] = `
+<div
+  className="todo-list"
+>
+  <div
+    className="todo-list-item"
+  >
+    <a
+      className="btn btn-secondary"
+      href="/tasks/1"
+      onClick={[Function]}
+    >
+      List A
+    </a>
+  </div>
+  <div
+    className="todo-list-item"
+  >
+    <a
+      className="btn btn-success"
+      href="/tasks/2"
+      onClick={[Function]}
+    >
+      List B
+    </a>
+  </div>
+  <div
+    className="todo-list-item"
+  >
+    <a
+      className="btn btn-secondary"
+      href="/tasks/3"
+      onClick={[Function]}
+    >
+      List C
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<TodoList /> renders correctly list without selected item 1`] = `
+<div
+  className="todo-list"
+>
+  <div
+    className="todo-list-item"
+  >
+    <a
+      className="btn btn-secondary"
+      href="/tasks/1"
+      onClick={[Function]}
+    >
+      List A
+    </a>
+  </div>
+  <div
+    className="todo-list-item"
+  >
+    <a
+      className="btn btn-secondary"
+      href="/tasks/2"
+      onClick={[Function]}
+    >
+      List B
+    </a>
+  </div>
+  <div
+    className="todo-list-item"
+  >
+    <a
+      className="btn btn-secondary"
+      href="/tasks/3"
+      onClick={[Function]}
+    >
+      List C
+    </a>
+  </div>
+</div>
+`;

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TasksListItem /> renders correctly with completed task 1`] = `
+<div
+  className="tasks-list-item card bg-success"
+>
+  <div
+    className="card-body"
+  >
+    Task A
+    <button
+      onClick={[Function]}
+    >
+      cancel
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<TasksListItem /> renders correctly with uncompleted task 1`] = `
+<div
+  className="tasks-list-item card"
+>
+  <div
+    className="card-body"
+  >
+    Task A
+    <button
+      onClick={[Function]}
+    >
+      done
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<TasksListItem /> renders correctly with unsaved task 1`] = `
+<div
+  className="tasks-list-item card tasks-list-item--not-saved"
+>
+  <div
+    className="card-body"
+  >
+    Task A
+  </div>
+</div>
+`;

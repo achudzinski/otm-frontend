@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InfoAlert /> renders correctly 1`] = `
+<div
+  className="alert alert-info"
+>
+  Test
+</div>
+`;

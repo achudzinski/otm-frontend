@@ -24,9 +24,13 @@ export const TasksListContainer = ({selectedListId}:TasksListContainerProps) => 
             .then(() => setIsLoaded(true));
     }, [selectedListId, dispatch]);
 
-    const handleUpdateCompletedState = (taskId: number) => {
+    const handleUpdateCompletedState = (taskId: number|null) => {
+        if (!taskId) {
+            return;
+        }
+
         const task = tasks.find(task => task.id === taskId);
-        if (!task) {
+        if (!task || !task.id) {
             return;
         }
 

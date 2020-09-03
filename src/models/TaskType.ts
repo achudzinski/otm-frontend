@@ -1,5 +1,6 @@
 export interface TaskType {
-    id: number,
+    localId: number|string,
+    id: number|null,
     title: string,
     completed: boolean,
 }
