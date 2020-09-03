@@ -16,7 +16,6 @@ import {
     unregisterOnCompletedChangedCallback,
     unregisterOnTaskAddedCallback
 } from "../../../../services/notifications";
-import {TaskType} from "../../../../models/TaskType";
 
 export interface TasksListContainerProps {
     selectedListId: number
